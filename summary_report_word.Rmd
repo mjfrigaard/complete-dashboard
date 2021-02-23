@@ -1,0 +1,27 @@
+---
+title: "Data Completeness Listing: Report"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: word_document
+---
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(rmarkdown)
+library(knitr)
+library(noteMD)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Fields Listing (notes)
+
+```{r note_in_md_word-markdowninput_table_1, warning = FALSE}
+noteMD::note_in_md_word(input$markdowninput_table_1)
+```
+
+
+## Removed Listing (notes)
+
+```{r note_in_md_word-markdowninput_table_2, warning = FALSE}
+noteMD::note_in_md_word(input$markdowninput_table_2)
+```

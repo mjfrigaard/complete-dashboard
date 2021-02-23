@@ -1,0 +1,203 @@
+---
+title: "(bmrn) data completeness listing - dashboard requirements specifications (DRS)"
+author: 
+- Martin Frigaard
+date: "`r Sys.Date()`"
+output: memor::pdf_memo
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+knitr::opts_chunk$set(warning = FALSE,  
+                      out.width = '100%',
+                      out.height = '45%',
+                      message = FALSE)
+```
+
+***
+
+**Document Reference:** drs-completeness-dashboard   
+**Owner:** CSM   
+**Issue date:** 2021-02-15   
+**Version:** 1.10  
+
+# Data Completeness Dashboard
+
+This is a dashboard for the data completeness listing (see the example stored in the `docs/Fields_DataCompleteness_270302_20210110.xlsx` file). 
+
+## Document History
+
+Changes to this document should be listed in the `Change Log` section below:
+
+### Change log 
+
+**Version:**  
+**Date:**   
+**Description:**   
+**Modified pages:**  
+
+## Purpose
+
+The purpose of this document is to serve as a guide to data scientists, app developers, system administrators, and data engineers who are responsible for the maintenance and deployment of the [complete-report] dashboard/app. This document should give the reader all of the information necessary to build, test, and deploy the dashboard/app.
+
+## Scope
+
+The DRS document contains a complete description of the functionality of the [complete-report] dashboard. It consists of use cases, functional requirements and non-functional requirements, which, taken together form a complete description of the software.
+
+## Definitions, Acronyms and Abbreviations
+
+**Term:** Listing
+**Definition:** output Excel file from SAS macro. In this dashboard, the listing is the `Fields_DataCompleteness_270302_YYYYMMDD.xlsx` file.
+
+**Term:** `Dataset Name`  
+**Definition:** Name of source dataset. 
+
+**Term:** `Field Name`  
+**Definition:** Abbreviated name for variable in dataset. 
+
+**Term:** `SAS Label`    
+**Definition:** Plain language description of measurement  
+
+**Term:** `Number of Records Expected Without Not Done`    
+**Definition:** *???*
+
+**Term:** `# Data Present`   
+**Definition:** `# Data Present` / Total
+
+**Term:** `Percentage of Data Present (%)`   
+**Definition:** `# Data Present` / Total
+
+**Term:** `# Missing`    
+**Definition:** non-present values 
+
+**Term:** `Percentage of Missing (%)`   
+**Definition:** `# Missing` / Total
+
+**Term:** `Condition for Missing`   
+**Definition:** SAS code for missing values  
+
+
+**Term:**   
+**Definition:**   
+
+## References
+
+### Applicable documents/inputs
+
+The applicable documents/inputs are inputs to the dashboard/app. Any change to an applicable document or input is likely to impact the dashboard or app.
+
+### Applicable standards
+
+R - [R reference standard](https://cran.r-project.org/manuals.html).  
+
+### Reference documents
+
+The reference documents are of interest to the reader of the DRS.
+
+\clearpage 
+
+# OVERALL DESCRIPTION
+
+*This section describes the general factors that affect the dashboard/app and its requirements. This section does not state specific requirements. Instead, it provides an overview of those requirements, which are defined in detail in the 'REQUIREMENTS' section, and makes them easier to understand.*
+
+The [complete-report] dashboard is displays the information contained in the `Fields_DataCompleteness_270302_YYYYMMDD` excel files, which are distributed via outlook to identified audiences. 
+
+### Dashboard/app perspective
+
+The figure below gives an overview of the high level data flow between the [complete-report] dashboard and other files and components:
+
+```{r bmrn-complete-report-flow-png, echo=FALSE, out.width = '100%', out.height = '65%'}
+knitr::include_graphics("../img/bmrn-complete-report-flow.png")
+```
+
+### Dashboard/app functions  
+
+The [complete-report] dashboard will provide a tabular summary of the completed study measurements by dataset, field, and corresponding SAS label.
+
+### User characteristics  
+
+The [complete-report] dashboard will be made available on the [shiny server]. The target audience is:
+
+- CDM (entire group?)
+- Data Managers 
+- [audience?]
+- [audience?]
+
+### Constraints
+
+The dashboard frontend shall be implemented using:
+
+- SAS (calculations and summary report generation)  
+- Excel (output file from SAS)  
+- R (Excel file manipulation and shiny display)  
+
+### Assumptions and dependencies
+
+
+
+\clearpage 
+
+# DASHBOARD/APP REQUIREMENTS
+
+This section covers the specific requirements and design of the [complete-report] dashboard. 
+
+## Dashboard/app overview
+
+### Mockup UI 
+
+The initial landing page (Fields Listing) is below. 
+
+```{r bmrn-complete-report-fields.png, echo=FALSE, out.width = '100%', out.height = '45%'}
+knitr::include_graphics("../img/bmrn-complete-report-fields.png")
+```
+
+The Removed Listing page is below:
+
+```{r bmrn-complete-report-removed.png, echo=FALSE,  out.width = '100%', out.height = '45%'}
+knitr::include_graphics("../img/bmrn-complete-report-removed.png")
+```
+
+
+### Mockup Server 
+
+### Use case overview
+
+Below is an example note for the **Fields listing**:
+
+```MD
+**CMF** has 200 missing values. 
+
+`SAS Label` is `Bleed Visit Number`
+```
+
+
+
+Below is an example note for the **Removed listing**:
+
+```MD
+`DSTERMOT` has been removed. 
+
+The `SASLabel` is `Other screen fail reason`
+```
+
+## Supplementary requirements
+
+### Functional requirements
+
+### Non-functional requirements
+
+### Security requirements
+
+\clearpage 
+
+# APPENDIXES
+
+## Logical data model
+
+
+
+
+
+

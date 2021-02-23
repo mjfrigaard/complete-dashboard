@@ -1,0 +1,13 @@
+name: complete-dashboard-v1-10
+title: complete-dashboard-v1-10
+username:
+account: mjfrigaard
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3648340
+bundleId: 4232038
+url: https://mjfrigaard.shinyapps.io/complete-dashboard-v1-10/
+when: 1613515159.28668
+asMultiple: TRUE
+asStatic: FALSE
+additionalFiles: Fields_DataCompleteness_270302_20210110.xlsx
